@@ -7,7 +7,7 @@ if ! command apt > /dev/null; then
 fi
 
 # This is the z script
-echo . ~/dotfiles/z.sh >> ~/.zshrc
+ . ~/dotfiles/z.sh >> ~/.zshrc
 
 # So zsh has permisions on home directory
 setopt auto_cd
@@ -39,8 +39,14 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 
 # Use hh to escape vi-mode
-export KEYTIMEOUT=10
+export KEYTIMEOUT=30
 bindkey -M viins "hh" vi-cmd-mode
+
+# aliases
+alias ls='ls --color'
+alias la='ls --color -a'
+alias ll='ls --color -l'
+alias lla='ls --color -la'
 
 # This is the spaceship prompt configuration
 # Battery
@@ -74,22 +80,3 @@ SPACESHIP_PROMPT_ORDER=(
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
 prompt spaceship
-
-
-#initialize Z (https://github.com/rupa/z) 
-. /home/fpp-dev/dotfiles/z.sh
-. /home/fpp-dev/dotfiles/z.sh
-. /home/fpp-dev/dotfiles/z.sh
-. /home/fpp-dev/dotfiles/z.sh
-. /home/fpp-dev/dotfiles/z.sh
-. /home/fpp-dev/dotfiles/z.sh
-. /home/fpp-dev/dotfiles/z.sh
-. /home/fpp-dev/dotfiles/z.sh
-. /home/fpp-dev/dotfiles/z.sh
-. /home/fpp-dev/dotfiles/z.sh
-. /home/fpp-dev/dotfiles/z.sh
-. /home/fpp-dev/dotfiles/z.sh
-. /home/fpp-dev/dotfiles/z.sh
-. /home/fpp-dev/dotfiles/z.sh
-. /home/fpp-dev/dotfiles/z.sh
-. /home/fpp-dev/dotfiles/z.sh
