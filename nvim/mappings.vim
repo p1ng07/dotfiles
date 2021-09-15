@@ -4,7 +4,7 @@ nnoremap ]o o<ESC>k
 
 " Insert mode bindings
 "   End all braces with the ending brace
-inoremap <silent><nowait> ht <ESC>
+inoremap <silent><nowait>hh <ESC>
 
 
 " Edit my beloved dotfiles
