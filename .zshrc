@@ -90,3 +90,5 @@ prompt spaceship
 . /home/fpp-dev/dotfiles/z.sh
 . /home/fpp-dev/dotfiles/z.sh
 . /home/fpp-dev/dotfiles/z.sh
+. /home/fpp-dev/dotfiles/z.sh
+. /home/fpp-dev/dotfiles/z.sh
