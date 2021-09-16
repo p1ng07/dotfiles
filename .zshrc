@@ -47,6 +47,8 @@ alias ls='ls --color'
 alias la='ls --color -a'
 alias ll='ls --color -l'
 alias lla='ls --color -la'
+alias v="nvim"
+alias vdot="nvim ~/.config/nvim/init.vim"
 
 # This is the spaceship prompt configuration
 # Battery
@@ -80,3 +82,6 @@ SPACESHIP_PROMPT_ORDER=(
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
 prompt spaceship
+
+# Source my plugins
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

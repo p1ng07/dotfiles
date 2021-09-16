@@ -20,8 +20,7 @@ set mouse=a
 autocmd TextChanged,TextChangedI <buffer> silent write
 
 " ColorScheme
-set background=dark
-colorscheme gruvbox
+colo iceberg
 
 " Powerline
 let g:airline#extensions#tabline#enabled = 1

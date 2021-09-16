@@ -8,21 +8,22 @@ Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-fugitive'
 
 " Fuzzy finder
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', { 'do': {-> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Powerline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Themes
-Plug 'morhetz/gruvbox'
-Plug 'tomasr/molokai'
+" Code Display
+Plug 'cocopon/iceberg.vim'
+Plug 'yggdroot/indentline'
+Plug 'sheerun/vim-polyglot'
 
 " Project Explorer
 Plug 'scrooloose/nerdtree'
 
 " Code editing
-Plug 'tpope/vim-surround'
 Plug 'preservim/nerdcommenter'
 
 

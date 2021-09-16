@@ -33,7 +33,7 @@ nnoremap <nowait><leader>bN :new<cr>
 
 
 "   Fuzzy finder
-nnoremap <nowait><silent><leader><leader> :FZF<cr>
+nnoremap <nowait><silent><leader><leader> :Files<cr>
 
 " Windows
 map <leader>ww :wincmd w<cr>	    
@@ -50,8 +50,7 @@ nnoremap <silent><nowait><leader>/ :nohl<cr>
 " NerdTree
 nnoremap <leader>nn :NERDTree<cr>
 nnoremap <leader>nf :NERDTreeFocus<cr>
-nnoremap <leader>nt :NERDTreeToggle<cr>
-nnoremap <leader>nf :NERDTreeFind<cr>
+nnoremap <leader>nc :NERDTreeClose<cr>
 
 " Tagbar
 map <F8> :TagbarToggle<cr>
