@@ -2,7 +2,7 @@
 
 neofetch --os_arch off
 # if this is a debian based distro, do magic for the spaceship prompt
-if ! command apt > /dev/null; then
+if ! command apt &>> /dev/null; then
     fpath=($fpath "/home/fpp-dev/.zfunctions")
 fi
 
