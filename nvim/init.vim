@@ -1,8 +1,6 @@
 call plug#begin('~/.vim/plugged')
 " Autocomplete
-Plug 'neoclide/coc.nvim'
-Plug 'lervag/vimtex'
-Plug 'plasticboy/vim-markdown'
+Plug 'neoclide/coc.nvim' ,{'branch': 'release','do': 'yarn install --frozen-lockfile'}
 
 " Git integration
 Plug 'tpope/vim-fugitive'
@@ -11,25 +9,35 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': {-> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Powerline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
 " Code Display
-Plug 'cocopon/iceberg.vim'
+Plug 'morhetz/gruvbox'
 Plug 'yggdroot/indentline'
 Plug 'sheerun/vim-polyglot'
+Plug 'ntpeters/vim-better-whitespace'
+
+" Markdown
+Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
 
 " Project Explorer
 Plug 'scrooloose/nerdtree'
 
+" Airline
+Plug 'vim-airline/vim-airline'
+
 " Code editing
 Plug 'preservim/nerdcommenter'
 
+" Note taking
+" Plug 'vimwiki/vimwiki'
+
+" Maximize windows
+Plug 'szw/vim-maximizer'
 
 call plug#end()
 
 source ~/.config/nvim/config.vim
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/mappings.vim
-
+set conceallevel=0
+set concealcursor=""

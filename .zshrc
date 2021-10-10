@@ -42,13 +42,19 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 export KEYTIMEOUT=30
 bindkey -M viins "hh" vi-cmd-mode
 
+# Keybinds
+bindkey -s '^p' '/opt/tmux-sessionizer/tmux-sessionizer.sh\n'
 # aliases
 alias ls='ls --color'
 alias la='ls --color -a'
 alias ll='ls --color -l'
 alias lla='ls --color -la'
+alias nvim="/opt/neovim/nvim.appimage"
 alias v="nvim"
-alias vdot="nvim ~/.config/nvim/init.vim"
+alias vdot="nvim ~/.config/nvim/"
+alias dot="nvim ~/dotfiles/"
+alias vw="nvim -c VimwikiIndex"
+#alias notes="nvim ~/Notas/index.vi"
 
 # This is the spaceship prompt configuration
 # Battery
@@ -58,7 +64,7 @@ SPACESHIP_TIME_SHOW=true
 SPACESHIP_TIME_COLOR="#8700d7"
 SPACESHIP_TIME_FORMAT=' '%T
 # Directory
-SPACESHIP_DIR_COLOR='#ff5faf'
+SPACESHIP_DIR_COLOR='#9999ff'
 SPACESHIP_DIR_PREFIX=''
 # Char
 SPACESHIP_CHAR_SYMBOL='  '
@@ -87,4 +93,6 @@ prompt spaceship
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^f' autosuggest-accept
-bindkey '^g' autosuggest-execute
+bindkey '^F' autosuggest-accept
+
+export PATH="/opt/Runelite:$PATH"

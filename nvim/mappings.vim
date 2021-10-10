@@ -2,56 +2,59 @@
 nnoremap [o O<ESC>j
 nnoremap ]o o<ESC>k
 
+" Make Y behave like the other capital letters:
+nnoremap Y y$
+
+" Center the results of search
+nnoremap n nzzz
+nnoremap N Nzzz
+nnoremap J mzJ`z
+
 " Insert mode bindings
-"   End all braces with the ending brace
 inoremap <silent><nowait>hh <ESC>
 
+" Yank to clipboard
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
 
-" Edit my beloved dotfiles
-nmap <nowait><leader>fcv :e ~/.config/nvim/init.vim<cr>
-nmap <nowait><leader>fcm :e ~/.config/nvim/mappings.vim<cr>
-nmap <nowait><leader>fcc :e ~/.config/nvim/config.vim<cr>
-"   Source main File
-nnoremap <nowait><silent><leader>fcr :source ~/.config/nvim/init.vim<cr>
+map <C-c> <esc>
 
+" Jumplist next and prev
+map <C-h> <C-o>
+map <C-l> <C-i>
 
-" Buffers
-"   Previous buffer
-nnoremap <nowait><leader>bp :bp<cr>		       
-"   Previous buffer
-nnoremap <nowait><leader>bn :bn<cr>	       
-"   Buffer delete
-nnoremap <nowait><leader>bd :bd<cr>		       
-"   Buffer delete and file
-nnoremap <nowait><leader>bD :!rm %<cr>:bd!<cr>     
-"   Buffer go to
-nnoremap <nowait><leader>bb :buffers<cr>:b
-"   Buffer delete
-nnoremap <nowait><leader>br :buffers<cr>:bdelete 
-"   Buffer new
-nnoremap <nowait><leader>bN :new<cr>
+" Edit Files
+nnoremap <nowait><leader>fcc :source ~/.config/nvim/init.vim<cr>
+nnoremap <nowait><leader>fs :w<CR>
+nnoremap <nowait><leader>fS :wa<CR>
 
-
-"   Fuzzy finder
-nnoremap <nowait><silent><leader><leader> :Files<cr>
+" Fuzzy finder
+nnoremap <nowait><silent><leader>. :Files<cr>
+" Select from opened buffers
+nnoremap <nowait><silent><leader>b :Buffers<cr>
+" RipGrep
+nnoremap <nowait><silent><leader>r :Rg<cr>
 
 " Windows
-map <leader>ww :wincmd w<cr>	    
-map <leader>wh :wincmd h<cr>
-map <leader>wj :wincmd j<cr>
-map <leader>wk :wincmd k<cr>
-map <leader>wl :wincmd l<cr>
-
-nnoremap <leader>wv :vsplit<cr>
-
-" Clear search highlight
-nnoremap <silent><nowait><leader>/ :nohl<cr>
+nnoremap <leader>h :wincmd h<cr>
+nnoremap <leader>j :wincmd j<cr>
+nnoremap <leader>k :wincmd k<cr>
+nnoremap <leader>l :wincmd l<cr>
+nnoremap <leader>q :q<cr>
 
 " NerdTree
 nnoremap <leader>nn :NERDTree<cr>
 nnoremap <leader>nf :NERDTreeFocus<cr>
 nnoremap <leader>nc :NERDTreeClose<cr>
 
-" Tagbar
-map <F8> :TagbarToggle<cr>
+" Maximizer
+nnoremap <leader>m :MaximizerToggle<CR>
 
+" Python - Run current buffer
+autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
+" Git fugitive
+nnoremap <leader>gs :G<cr>
