@@ -11,7 +11,7 @@ nnoremap N Nzzz
 nnoremap J mzJ`z
 
 " Insert mode bindings
-inoremap <silent><nowait>jj <ESC>
+inoremap <silent><nowait>uu <ESC>
 
 " Yank to clipboard
 nnoremap <leader>y "+y
