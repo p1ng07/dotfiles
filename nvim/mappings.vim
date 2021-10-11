@@ -11,7 +11,7 @@ nnoremap N Nzzz
 nnoremap J mzJ`z
 
 " Insert mode bindings
-inoremap <silent><nowait>hh <ESC>
+inoremap <silent><nowait>jj <ESC>
 
 " Yank to clipboard
 nnoremap <leader>y "+y
@@ -58,4 +58,4 @@ autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellesca
 
 " Git fugitive
 nnoremap <leader>gs :G<cr>
-nnoremap <leader>gp :Git pus<cr>
+nnoremap <leader>gp :Git push<cr>
