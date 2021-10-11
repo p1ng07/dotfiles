@@ -58,3 +58,4 @@ autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellesca
 
 " Git fugitive
 nnoremap <leader>gs :G<cr>
+nnoremap <leader>gp :Git pus<cr>
