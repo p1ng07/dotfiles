@@ -6,8 +6,8 @@ nnoremap ]o o<ESC>k
 nnoremap Y y$
 
 " Center the results of search
-nnoremap n nzzz
-nnoremap N Nzzz
+nnoremap n nzz
+nnoremap N Nzz
 nnoremap J mzJ`z
 
 " Insert mode bindings

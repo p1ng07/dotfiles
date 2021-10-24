@@ -44,6 +44,7 @@ bindkey -M viins "hh" vi-cmd-mode
 
 # Keybinds
 bindkey -s '^p' '/opt/tmux-sessionizer/tmux-sessionizer.sh\n'
+bindkey -s '^f' '/opt/tmux-sessionizer/dotfiles-sessionizer.sh\n'
 # aliases
 alias ls='ls --color'
 alias la='ls --color -a'
