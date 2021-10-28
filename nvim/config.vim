@@ -8,6 +8,8 @@ set smartcase
 set ignorecase
 set incsearch
 set autoindent
+set hidden
+
 
 " Tab convert to space
 set tabstop=4
@@ -43,24 +45,10 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
     \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
 
-" Vim wiki
-"let g:vimwiki_list = [{'path': '~/Notas/',
-            "\ 'syntax': 'markdown', 'ext': '.md'}]
-
 " Better whitespace
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
 
-" Markdown
-let g:vim_markdown_math = 1
-let g:vim_markdown_no_extensions_in_markdown = 1
-let g:vim_markdown_autowrite = 1
-let g:vim_markdown_conceal = 0
-let g:tex_conceal = ""
-let g:vim_markdown_math = 1
-let g:vim_markdown_conceal_code_blocks = 0
-set conceallevel=0
-set concealcursor=""
-let g:vim_markdown_folding_disabled = 1
-
+" Vimtex
+g:vimtex_syntax_conceal_disable=1

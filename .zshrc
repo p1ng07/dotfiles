@@ -1,6 +1,5 @@
 #! /usr/bin/zsh
 
-neofetch --os_arch off
 # if this is a debian based distro, do magic for the spaceship prompt
 if ! command apt &>> /dev/null; then
     fpath=($fpath "/home/fpp-dev/.zfunctions")
@@ -40,22 +39,18 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # Use hh to escape vi-mode
 export KEYTIMEOUT=30
-bindkey -M viins "hh" vi-cmd-mode
+bindkey -M viins "uu" vi-cmd-mode
 
 # Keybinds
-bindkey -s '^p' '/opt/tmux-sessionizer/tmux-sessionizer.sh\n'
-bindkey -s '^f' '/opt/tmux-sessionizer/dotfiles-sessionizer.sh\n'
+bindkey -s '^v' '~/.local/bin/tmux-sessionizer.sh\n'
 # aliases
 alias ls='ls --color'
 alias la='ls --color -a'
 alias ll='ls --color -l'
 alias lla='ls --color -la'
-alias nvim="/opt/neovim/nvim.appimage"
 alias v="nvim"
-alias vdot="nvim ~/.config/nvim/"
 alias dot="nvim ~/dotfiles/"
-alias vw="nvim -c VimwikiIndex"
-#alias notes="nvim ~/Notas/index.vi"
+alias backlight="xbacklight -set"
 
 # This is the spaceship prompt configuration
 # Battery
@@ -63,23 +58,23 @@ SPACESHIP_BATTERY_SHOW=always
 # Time
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_TIME_COLOR="#8700d7"
-SPACESHIP_TIME_FORMAT=' '%T
+SPACESHIP_TIME_FORMAT=%T
 # Directory
 SPACESHIP_DIR_COLOR='#9999ff'
 SPACESHIP_DIR_PREFIX=''
 # Char
-SPACESHIP_CHAR_SYMBOL='  '
+SPACESHIP_CHAR_SYMBOL='> '
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stamps section
   user          # Username section
-  dir           # Current directory section
   host          # Hostname section
+  battery       # Battery level and status
+  dir           # Current directory section
   git           # Git section (git_branch + git_status)
   node          # Node.js section
   venv          # virtualenv section
   exec_time     # Execution time
   line_sep      # Line break
-  battery       # Battery level and status
   exit_code     # Exit code section
   char          # Prompt character
 )
@@ -93,7 +88,8 @@ prompt spaceship
 # Source my plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 bindkey '^f' autosuggest-accept
 bindkey '^F' autosuggest-accept
 
-export PATH="/opt/Runelite:$PATH"
+alias luamake=/home/francisco/git/lua-language-server/3rd/luamake/luamake
