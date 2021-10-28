@@ -38,8 +38,7 @@ Plug 'szw/vim-maximizer'
 
 call plug#end()
 
-source ~/.config/nvim/config.vim
-set concealcursor=v
+lua require('config')
 source ~/.config/nvim/mappings.vim
 
 set completeopt=menu,menuone,noselect
