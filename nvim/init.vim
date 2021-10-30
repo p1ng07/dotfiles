@@ -16,12 +16,9 @@ Plug 'junegunn/fzf.vim'
 " Code Display
 Plug 'morhetz/gruvbox'
 Plug 'yggdroot/indentline'
-Plug 'sheerun/vim-polyglot'
 Plug 'ntpeters/vim-better-whitespace'
 
 " Note taking
-Plug 'plasticboy/vim-markdown'
-Plug 'godlygeek/tabular'
 Plug 'lervag/vimtex'
 
 " Project Explorer
@@ -38,8 +35,11 @@ Plug 'szw/vim-maximizer'
 
 call plug#end()
 
+set concealcursor
+
 lua require('config')
 source ~/.config/nvim/mappings.vim
+colo gruvbox
 
 set completeopt=menu,menuone,noselect
 

@@ -14,10 +14,11 @@ nnoremap J mzJ`z
 inoremap <silent><nowait>uu <ESC>
 
 " Yank to clipboard
-nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
+nnoremap <nowait><leader>d "_dd
+vnoremap <nowait><leader>d "_d
 
 map <C-c> <esc>
 
@@ -37,12 +38,13 @@ nnoremap <nowait><silent><leader>b :Buffers<cr>
 " RipGrep
 nnoremap <nowait><silent><leader>r :Rg<cr>
 
-" Windows
-nnoremap <leader>h :wincmd h<cr>
-nnoremap <leader>j :wincmd j<cr>
-nnoremap <leader>k :wincmd k<cr>
-nnoremap <leader>l :wincmd l<cr>
-nnoremap <leader>q :q<cr>
+"Quickfix list
+nnoremap <leader>qj :cnext<CR>
+nnoremap <leader>qk :cprevious<CR>
+
+" Location list
+nnoremap <C-j> :lnext<CR>
+nnoremap <C-k> :lprevious<CR>
 
 " NerdTree
 nnoremap <leader>nn :NERDTree<cr>
