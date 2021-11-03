@@ -1,0 +1,14 @@
+XF86MonBrightnessDown
+    xbacklight -dec 5
+
+XF86MonBrightnessUp
+    xbacklight -inc 5
+
+XF86AudioMute
+    amixer set Master toggle && . ~/scripts/volmute.sh
+
+XF86AudioLowerVolume
+    amixer  sset Master 5%- && . ~/scripts/getvol.sh
+
+XF86AudioRaiseVolume
+    amixer  sset Master 5%+ && . ~/scripts/getvol.sh
