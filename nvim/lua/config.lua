@@ -1,8 +1,11 @@
 -- Global Variables
+vim.g.vimtex_view_method = 'zathura'
 vim.g.better_whitespace_enabled=1
 vim.g.strip_whitespace_on_save=1
 vim.g.strip_whitespace_confirm=0
 vim.g.NERDTrimTrailingWhitespace = 1
+vim.g.UltiSnipsJumpForwardTrigger='<tab>'
+vim.g.UltiSnipsJumpBackwardTrigger='<s-tab>'
 
 -- Leader
 vim.g.mapleader = ' '
@@ -28,7 +31,9 @@ vim.o.swapfile = false
 vim.bo.swapfile = false
 vim.bo.formatoptions = 'tqjn'
 vim.o.formatoptions = 'tqjn'
-
+vim.bo.spelllang = 'en,pt'
+vim.o.spelllang = 'en,pt'
+vim.o.completeopt = 'menuone,noselect'
 -- Window options
 vim.wo.relativenumber = true
 vim.wo.number = true

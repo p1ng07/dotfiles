@@ -12,39 +12,38 @@ fi
 setopt auto_cd
 
 # Enable vi mode
-bindkey -v
-export KEYTIMEOUT=1
+# bindkey -v
+# export KEYTIMEOUT=1
 
-# Vi-mode configuration
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
-}
-zle -N zle-line-init
+# # Vi-mode configuration
+# function zle-keymap-select {
+#   if [[ ${KEYMAP} == vicmd ]] ||
+#      [[ $1 = 'block' ]]; then
+#     echo -ne '\e[1 q'
+#   elif [[ ${KEYMAP} == main ]] ||
+#        [[ ${KEYMAP} == viins ]] ||
+#        [[ ${KEYMAP} = '' ]] ||
+#        [[ $1 = 'beam' ]]; then
+#     echo -ne '\e[5 q'
+#   fi
+# }
+# zle -N zle-keymap-select
+#zle-line-init() {
+#     zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+#     echo -ne "\e[5 q"
+# }
+# zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 export PATH="${PATH}:${HOME}/.local/bin/"
 
 
-# Use hh to escape vi-mode
-export KEYTIMEOUT=30
-bindkey -M viins "uu" vi-cmd-mode
+# # Use hh to escape vi-mode
+# export KEYTIMEOUT=30
 
 # Keybinds
-bindkey -s '^v' '~/.local/bin/tmux-sessionizer.sh\n'
+bindkey -s '^v' '~/.local/bin/tmux-sessions.sh\n'
 # aliases
 alias ls='ls --color'
 alias la='ls --color -a'
@@ -52,7 +51,7 @@ alias ll='ls --color -l'
 alias lla='ls --color -la'
 alias v="nvim"
 alias dot="nvim ~/dotfiles/"
-alias backlight="xbacklight -set"
+alias cal="cal -s"
 
 # This is the spaceship prompt configuration
 # Battery
@@ -70,8 +69,8 @@ SPACESHIP_PROMPT_ORDER=(
   time          # Time stamps section
   user          # Username section
   host          # Hostname section
-  battery       # Battery level and status
   dir           # Current directory section
+  host
   git           # Git section (git_branch + git_status)
   node          # Node.js section
   venv          # virtualenv section
@@ -80,7 +79,6 @@ SPACESHIP_PROMPT_ORDER=(
   exit_code     # Exit code section
   char          # Prompt character
 )
-
 
 
 # Set Spaceship ZSH as a prompt

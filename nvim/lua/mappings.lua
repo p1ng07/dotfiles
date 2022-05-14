@@ -25,10 +25,6 @@ vim.api.nvim_set_keymap('v', '<leader>p', '"+p', opts)
 vim.api.nvim_set_keymap('n', '<leader>d', '"_dd', opts)
 vim.api.nvim_set_keymap('v', '<leader>d', '"_d', opts)
 
--- QuickFix list jumping
-vim.api.nvim_set_keymap('n', '<C-j>', ':cnext<cr>', opts)
-vim.api.nvim_set_keymap('n', '<C-k>', ':cprevious<cr>', opts)
-
 -- Jumplist remap
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-o>', opts)
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-i>', opts)
@@ -36,7 +32,11 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-i>', opts)
 opts = {noremap = true, silent = true, nowait = true}
 
 -- File saving
-vim.api.nvim_set_keymap('n', '<leader>fs', ':w<cr>', opts)
-vim.api.nvim_set_keymap('n', '<leader>fS', ':wa<cr>', opts)
+vim.api.nvim_set_keymap('n', '<leader>s', ':w<cr>', opts)
+vim.api.nvim_set_keymap('n', '<leader>S', ':wa<cr>', opts)
 -- Sourcing
-vim.api.nvim_set_keymap('n', '<leader>fcc', ':so ~/.config/nvim/init.vim<cr>', opts)
+vim.api.nvim_set_keymap('n', '<leader>fcc', ':luafile /home/endbox/.config/nvim/init.lua<cr>', opts)
+
+-- Spell checkcing
+vim.api.nvim_set_keymap('n', '<F11>', ':set spell!<cr>', opts)
+vim.api.nvim_set_keymap('i', '<F11>', '<C-o>:set spell!<cr>', opts)

@@ -1,64 +1,51 @@
-snippet bm2
-\begin{bmatrix}
-	$1 & $2 \\\
-	$4 & $5 \\\
-\end{bmatrix}
-endsnippet
-snippet bm3
-\begin{bmatrix}
-	$1 & $2 & $3 \\\
-	$4 & $5 & $6 \\\
-	$7 & $8 & $9 \\\
-\end{bmatrix}
+snippet begin
+\begin{$1}
+
+$2
+
+\end{$1}
 endsnippet
 
-snippet vm3
-\begin{vmatrix}
-	$1 & $2 & $3 \\\
-	$4 & $5 & $6 \\\
-	$7 & $8 & $9 \\\
-\end{vmatrix}
-endsnippet
-
-snippet amp
-\left[
-	\begin{array}{ccc|c}
-		$1 & $2 & $3 & $4 \\\
-		$5 & $6 & $6 & $7 \\\
-		$8 & $8 & $9 & $10 \\\
-	\end{array}
-\right]
-$11
+snippet minted
+\begin{tcolorbox}[$1,title=$2]
+\begin{minted}[$3]
+$4
+\end{minted}
+\end{tcolorbox}
 endsnippet
 
 snippet frc
 \frac{$1}{$2}
 endsnippet
 
+snippet chapt
+\chapter{$0}
+endsnippet
+
 snippet sec
 \section{$1}
 
-$0
+$2
 endsnippet
 
 snippet ssec
 \subsection{$1}
 
-$0
+$2
 endsnippet
 
 snippet sssec
 \subsubsection{$1}
 
-$0
+$2
 endsnippet
 
-snippet cent
+snippet center
 \begin{center}
 	$0
 \end{center}
 endsnippet
-snippet alg
+snippet align
 \begin{align}
 	$0
 \end{align}
@@ -68,4 +55,83 @@ snippet itemize
 \begin{itemize}
 	\item $0
 \end{itemize}
+endsnippet
+
+snippet !article
+\documentclass[12pt, letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0em}
+
+\title{$0}
+\date{$1}
+\author{
+    $2\\
+    \LARGE{Universidade da Madeira}\\
+    \large{Engenharia Informática - $3}\\
+}
+
+\begin{document}
+\maketitle
+\newpage
+
+$4
+
+\end{document}
+endsnippet
+
+snippet item
+\item $0
+endsnippet
+
+snippet equation
+\begin{equation}
+	$0
+\end{equation}
+endsnippet
+
+snippet tabular
+\begin{tabular}{$1}
+	$2
+\end{tabular}
+endsnippet
+
+snippet si
+\si{\\$1} $2
+endsnippet
+
+snippet table
+\begin{table}[$1]
+	\caption{$2}
+	$3
+\end{table}
+endsnippet
+
+snippet system
+\begin{equation}
+    \begin{cases}
+        $1
+    \end{cases}
+\end{equation}
+endsnippet
+
+snippet bold
+\textbf{$1}
+endsnippet
+
+snippet figure
+\begin{figure}[ht]
+    \centering
+    \includegraphics[$1]{$2}
+    \caption{$3}
+    \label{fig:$4}
+\end{figure}
+endsnippet
+
+snippet emph
+\emph{$1}
+endsnippet
+
+snippet italic
+\textit{$1}
 endsnippet
