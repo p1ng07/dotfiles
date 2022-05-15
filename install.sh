@@ -7,7 +7,7 @@ myuser=`whoami`
 # Install all of the programs to be used
 if [ "$myos" = "arch" ]
 then
-    pacman -S --noconfirm git ttf-font-awesome awesome ttf-fira-code alacritty tmux neovim rofi man neofetch zsh python3 fzf nodejs ccls alsa-lib gtk3 libxss nss ttf-font cups cmake fmt spdlog grpc ninja nlohmann-json papirus-icon-theme yarn
+    pacman -S --noconfirm git emacs ttf-font-awesome awesome ttf-fira-code alacritty tmux neovim rofi man neofetch zsh python3 fzf nodejs ccls alsa-lib gtk3 libxss nss ttf-font cups cmake fmt spdlog grpc ninja nlohmann-json papirus-icon-theme yarn
     chsh -s /bin/zsh $myuser
 
 elif [ "$myos" = "pop" ]
@@ -32,6 +32,11 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ln -sf nvim $HOME/.config/nvim
+
+ln -sf .emacs.d $HOME/.emacs.d
+ln -sf .doom.d $HOME/.doom.d
+
+ln -sf .Xkbmap $HOME/.Xkbmap
 
 # Move the wallpapers
 mkdir /usr/share/backgrounds &>> /dev/null
