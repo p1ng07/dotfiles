@@ -1,5 +1,5 @@
 sudo xbps-install -Sy xbps
-sudo xbps-install xorg stow NetworkManager network-manager-applet firefox lightdm emacs-gtk3  pipewire alacritty i3 neovim polybar lxappearance nitrogen zsh
+sudo xbps-install xorg stow rofi NetworkManager network-manager-applet firefox lightdm emacs-gtk3  pipewire alacritty i3 neovim polybar lxappearance nitrogen zsh
 
 stow .
 
