@@ -1,6 +1,6 @@
 \.git
 .gitignore
-wallpapers/
+\wallpapers
 00-keyboard.conf
 dependencies
 install.sh
