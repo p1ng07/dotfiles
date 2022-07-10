@@ -1,0 +1,7 @@
+\.git
+.gitignore
+wallpapers/
+00-keyboard.conf
+dependencies
+install.sh
+README.md
