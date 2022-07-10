@@ -1,5 +1,5 @@
 sudo xbps-install -Sy xbps
-sudo xbps-install xorg NetworkManager network-manager-applet firefox lightdm emacs-gtk3  pipewire alacritty i3 neovim polybar lxappearance nitrogen
+sudo xbps-install xorg NetworkManager network-manager-applet firefox lightdm emacs-gtk3  pipewire alacritty i3 neovim polybar lxappearance nitrogen zsh
 
 stow .
 
@@ -16,3 +16,6 @@ sudo ln -s /etc/sv/NetworkManager /var/service
 
 sudo mkdir /etc/X11/xorg.conf.d
 sudo cp 00-keyboard.conf /etc/X11/xorg.conf.d/
+
+# shell
+sudo chsh -s /bin/zsh francisco
