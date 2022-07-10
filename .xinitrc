@@ -1,2 +1,2 @@
+nitrogen --restore &
 exec i3
-nitrogen --restore

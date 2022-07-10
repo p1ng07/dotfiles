@@ -1,3 +1,3 @@
 #!/bin/bash
 pkill polybar
-polybar
+polybar mybar
