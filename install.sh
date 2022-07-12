@@ -19,3 +19,6 @@ sudo cp 00-keyboard.conf /etc/X11/xorg.conf.d/
 
 # shell
 sudo chsh -s /bin/zsh francisco
+# shell install prompt
+git clone https://github.com/spaceship-prompt/spaceship-prompt.git --depth=1 zsh-plugins/
+ln -sf "zsh_plugins/spaceship-prompt/spaceshipt.zsh" "/usr/local/share/zsh/site-functions/prompt_spaceship_setup"

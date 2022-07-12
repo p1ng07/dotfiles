@@ -1,5 +1,6 @@
 \.git
 .gitignore
+\zsh-plugins
 \wallpapers
 00-keyboard.conf
 dependencies
