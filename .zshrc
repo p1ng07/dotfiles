@@ -16,17 +16,17 @@ unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
 
+. ~/dotfiles/zsh_plugins/z.sh
+
 #vim mode
 bindkey -v
 # Remove mode switching delay.
 KEYTIMEOUT=5
-
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
     if [[ ${KEYMAP} == vicmd ]] ||
            [[ $1 = 'block' ]]; then
         echo -ne '\e[1 q'
-
     elif [[ ${KEYMAP} == main ]] ||
              [[ ${KEYMAP} == viins ]] ||
              [[ ${KEYMAP} = '' ]] ||

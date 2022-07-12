@@ -78,3 +78,11 @@
       "C-b" #'evil-delete-buffer)
 
 (add-hook 'vterm-mode-hook #'turn-off-evil-mode)
+
+;; Dired bindings
+(map! :map dired-mode-map
+      :gn
+      "h" #'dired-up-directory)
+(map! :map dired-mode-map
+      :gn
+      "l" #'dired-find-file)
