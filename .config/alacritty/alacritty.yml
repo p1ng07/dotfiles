@@ -65,7 +65,7 @@ colors:
 
   cursor:
     text:   '0x7f85a3'
-    cursor: '0x808080'
+    cursor: '0x82aaff'
 
   normal:
     black:   '0x444a73'

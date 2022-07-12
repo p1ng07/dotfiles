@@ -16,9 +16,6 @@ unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
 
-# Prompt
-PROMPT='%~ $ '
-
 #vim mode
 bindkey -v
 # Remove mode switching delay.
@@ -50,3 +47,20 @@ preexec() {
 alias v='nvim'
 alias vim='nvim'
 source /home/francisco/dotfiles/zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+autoload -U promptinit; promptinit
+prompt spaceship
+
+# User
+SPACESHIP_USER_SHOW='always'
+SPACESHIP_USER_COLOR='#80a8fd'
+SPACESHIP_CHAR_SYMBOL='π '
+SPACESHIP_CHAR_COLOR_SUCCESS='#82aaff'
+SPACESHIP_PROMPT_ORDER=(
+  user          # Username section
+  dir           # Current directory section
+  git           # Git section (git_branch + git_status)
+  line_sep      # Line break
+  exit_code     # Exit code section
+  char          # Prompt character
+)
