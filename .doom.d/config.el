@@ -34,14 +34,22 @@
   (split-window-horizontally)
   (other-window 1)
   (+vterm/here nil))
-(map! :leader
+
+(map! :prefix "C-c"
+      :desc "terminal"
+      "t" )
+(map! :prefix "C-c"
       :desc "Split open vterm vertically"
       :n
-      "o v" #'my-split-vterm)
-(map! :leader
+      "t v" (lambda()
+              (interactive)
+              (split-window-horizontally)
+              (other-window 1)
+              (+vterm/here nil)))
+(map! :prefix "C-c"
       :desc "Split open vterm horizontally"
       :n
-      "o h" (lambda()
+      "t h" (lambda()
               (interactive)
               (split-window-vertically)
               (other-window 1)
@@ -77,7 +85,7 @@
       :desc "Kill buffer"
       "C-b" #'evil-delete-buffer)
 
-(add-hook 'vterm-mode-hook #'turn-off-evil-mode)
+(add-hook! 'vterm-mode-hook #'turn-off-evil-mode)
 
 ;; Dired bindings
 (map! :map dired-mode-map
