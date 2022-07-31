@@ -13,6 +13,10 @@ exec --no-startup-id nm-applet &
 exec firefox &
 exec emacs &
 
+#Start an alacritty terminal and send it to scratchpad
+exec --no-startup-id alacritty -t scratchpad
+for_window [instance="scratchpad"] move scratchpad
+
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% 
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -21,9 +25,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
-set $up k
-set $down j
 set $left h
+set $down j
+set $up k
 set $right l
 
 # use Mouse+Mod4 to drag floating windows to their wanted position
@@ -43,6 +47,7 @@ bindsym Mod4+Shift+c kill
 
 # A more modern dmenu replacement is rofi:
 bindsym Mod4+d exec "rofi -show run"
+bindsym Mod4+Shift+d exec "rofi -show run"
 
 # change focus
 bindsym Mod4+$left focus left
@@ -70,8 +75,7 @@ bindsym Mod4+Shift+Right move right
 
 # split in horizontal orientation
 bindsym Mod4+w split h
-
-# split in vertical orientation
+# k split in vertical orientation
 bindsym Mod4+v split v
 
 # enter fullscreen mode for the focused container
@@ -83,21 +87,21 @@ bindsym Mod4+f fullscreen toggle
 bindsym Mod4+e layout toggle split
 
 # toggle tiling / floating
-bindsym Mod4+Shift+f floating toggle
+bindsym Mod4+Shift+s floating toggle
 
 # change focus between tiling / floating windows
-bindsym Mod4+space focus mode_toggle
+bindsym Mod4+s focus mode_toggle
 
 # focus the parent container
 bindsym Mod4+a focus parent
 
 # focus the child container
-#bindsym Mod4+d focus child
+bindsym Mod4+c focus child
 
 # move the currently focused window to the scratchpad
 bindsym Mod4+Shift+minus move scratchpad
 
-# Show the next scratchpad window or hide the focused scratchpad window.
+# Start alacritty window and put it into scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym Mod4+minus scratchpad show
 

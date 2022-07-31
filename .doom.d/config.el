@@ -12,7 +12,7 @@
 
 
 (setq doom-font (font-spec :family "Source Code Pro" :size 17 :weight 'medium))
-(setq doom-theme 'doom-moonlight)
+(setq doom-theme 'doom-challenger-deep)
 (setq display-line-numbers-type 'relative)
 (setq org-directory "~/org/")
 (setq c-default-style "linux"

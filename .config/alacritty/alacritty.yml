@@ -7,13 +7,13 @@ window:
    x: 10
    y: 10
 
-  dynamic_padding: true
+  # dynamic_padding: true
 
-  opacity: 1.0
+  # opacity: 1.0
 
   title: Alacritty
 
-  dynamic_title: true
+  # dynamic_title: true
 
   class:
     instance: Alacritty
@@ -22,7 +22,7 @@ window:
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  history: 10000
+  history: 200
 
   # Scrolling distance multiplier.
   multiplier: 3
