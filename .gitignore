@@ -29,7 +29,7 @@
 *.app
 
 #gh token
-.config/gh/hosts.yml
+.config/gh
 .config/libfm
 .config/pulse
 .config/xfce4
