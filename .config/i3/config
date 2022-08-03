@@ -10,8 +10,9 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id nm-applet &
 
 # Autostart
-exec firefox &
-exec emacs &
+exec --no-startup-id firefox &
+exec --no-startup-id flameshot &
+exec --no-startup-id emacs &
 
 #Start an alacritty terminal and send it to scratchpad
 exec --no-startup-id alacritty -t scratchpad
@@ -82,8 +83,8 @@ bindsym Mod4+v split v
 bindsym Mod4+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-#bindsym Mod4+s layout stacking
-#bindsym Mod4+w layout tabbed
+# bindsym Mod4+g layout stacking
+bindsym Mod4+g layout tabbed
 bindsym Mod4+e layout toggle split
 
 # toggle tiling / floating
