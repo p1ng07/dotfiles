@@ -27,3 +27,9 @@
 *.exe
 *.out
 *.app
+
+#gh token
+.config/gh
+.config/libfm
+.config/pulse
+.config/xfce4
