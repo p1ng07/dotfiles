@@ -1,5 +1,5 @@
 sudo xbps-install -Sy xbps
-sudo xbps-install xorg stow picom rofi NetworkManager network-manager-applet firefox lightdm lightdm-gtk3-greeter emacs-gtk3  pipewire alacritty i3 neovim polybar lxappearance nitrogen zsh github-cli
+sudo xbps-install flameshot xorg stow picom rofi NetworkManager network-manager-applet firefox lightdm lightdm-gtk3-greeter emacs-gtk3  pipewire alacritty i3 neovim polybar lxappearance nitrogen zsh github-cli
 
 stow .
 
