@@ -11,18 +11,17 @@ exec --no-startup-id nm-applet &
 
 # Autostart
 exec --no-startup-id firefox &
-exec --no-startup-id flameshot &
+exec flameshot &
 exec --no-startup-id emacs &
-
-#Start an alacritty terminal and send it to scratchpad
-exec --no-startup-id alacritty -t scratchpad
-for_window [instance="scratchpad"] move scratchpad
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% 
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# Bind screenshot utility
+bindsym Print exec --no-startup-id flameshot gui
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient

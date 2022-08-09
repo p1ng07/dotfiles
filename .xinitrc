@@ -4,4 +4,4 @@ pipewire-pulse &
 picom &
 exec i3
 
-xbacklight -set 100
+exec xbacklight -set 100
