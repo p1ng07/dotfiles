@@ -49,6 +49,9 @@ alias v='nvim'
 alias vim='nvim'
 source /home/francisco/dotfiles/zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+#Update PATH
+export PATH="$HOME/.local/bin/:$PATH"
+
 autoload -U promptinit; promptinit
 prompt spaceship
 
