@@ -58,12 +58,16 @@ prompt spaceship
 # User
 SPACESHIP_USER_SHOW='always'
 SPACESHIP_USER_COLOR='#80a8fd'
+
 SPACESHIP_CHAR_SYMBOL='π '
 SPACESHIP_CHAR_COLOR_SUCCESS='#82aaff'
+
+SPACESHIP_VENV_PREFIX='🐍 '
 SPACESHIP_PROMPT_ORDER=(
   user          # Username section
   dir           # Current directory section
   git           # Git section (git_branch + git_status)
+  venv          # virtual environment for python
   line_sep      # Line break
   exit_code     # Exit code section
   char          # Prompt character
