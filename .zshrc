@@ -47,10 +47,14 @@ preexec() {
 alias unfuck_wifi='sudo sv down NetworkManager && sudo sv up NetworkManager'
 alias v='nvim'
 alias vim='nvim'
+alias ls='ls --color'
+alias la='ls -a'
+alias lla='ls -la'
 source /home/francisco/dotfiles/zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #Update PATH
 export PATH="$HOME/.local/bin/:$PATH"
+export LD_LIBRARY_PATH="/usr/local/lib/"
 
 autoload -U promptinit; promptinit
 prompt spaceship
