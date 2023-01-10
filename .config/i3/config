@@ -9,6 +9,8 @@ exec --no-startup-id dex --autostart --environment i3
 # nm-applet is a desktop environment-independent system tray GUI for NetworkManager.
 exec --no-startup-id nm-applet &
 
+exec_always --no-startup-id /bin/xmodmap ~/.Xmodmap
+
 # Autostart
 exec --no-startup-id firefox &
 exec flameshot &
@@ -35,6 +37,7 @@ floating_modifier Mod4
 
 #Rules for applications
 assign [class="Firefox"] $ws1
+assign [class="Discord"] $ws9
 assign [class="Emacs"] $ws3
 # start a terminal
 bindsym Mod4+Return exec alacritty
