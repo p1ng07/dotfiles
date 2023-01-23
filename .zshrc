@@ -55,6 +55,7 @@ source /home/francisco/dotfiles/zsh_plugins/zsh-syntax-highlighting/zsh-syntax-h
 #Update PATH
 export PATH="$HOME/.local/bin/:$PATH"
 export PATH="$HOME/bin/:$PATH"
+export PATH="$HOME/.cargo/bin/:$PATH"
 export LD_LIBRARY_PATH="/usr/local/lib/"
 
 autoload -U promptinit; promptinit
