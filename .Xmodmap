@@ -1,5 +1,9 @@
 clear lock
+clear shift
 clear control
+
 keycode 66 = Control_L
+keycode 37 = Shift_L
+
 add control = Control_L
-add Lock = Control_R
+add shift = Shift_L

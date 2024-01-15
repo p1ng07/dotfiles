@@ -1,10 +1,13 @@
+#!/bin/sh
+
 nitrogen --restore &
 pipewire &
 pipewire-pulse &
+wireplumber &
 picom &
+xmodmap ~/.Xmodmap
 exec i3
 
-xmodmap ~/.Xmodmap
 
 exec xset b off
 

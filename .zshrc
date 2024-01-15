@@ -18,6 +18,19 @@ bindkey -e
 
 . ~/dotfiles/zsh_plugins/z.sh
 
+# Magic for vterm to work
+vterm_printf() {
+    if [ -n "$TMUX" ] && ([ "${TERM%%-*}" = "tmux" ] || [ "${TERM%%-*}" = "screen" ]); then
+        # Tell tmux to pass the escape sequences through
+        printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+    elif [ "${TERM%%-*}" = "screen" ]; then
+        # GNU screen (screen, screen-256color, screen-256color-bce)
+        printf "\eP\e]%s\007\e\\" "$1"
+    else
+        printf "\e]%s\e\\" "$1"
+    fi
+}
+
 #vim mode
 bindkey -v
 # Remove mode switching delay.
@@ -79,3 +92,7 @@ SPACESHIP_PROMPT_ORDER=(
   char          # Prompt character
 )
 cd ~
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
