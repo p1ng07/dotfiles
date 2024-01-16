@@ -1,0 +1,7 @@
+{
+    "version": "2.0.1",
+    "autoload": {
+        "HP WMI hotkeys": "teclado",
+        "AT Translated Set 2 keyboard": "caps to ctrl"
+    }
+}

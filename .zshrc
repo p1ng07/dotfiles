@@ -63,7 +63,7 @@ alias vim='nvim'
 alias ls='ls --color'
 alias la='ls -a'
 alias lla='ls -la'
-source /home/francisco/dotfiles/zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #Update PATH
 export PATH="$HOME/.local/bin/:$PATH"
@@ -72,7 +72,8 @@ export PATH="$HOME/.cargo/bin/:$PATH"
 export LD_LIBRARY_PATH="/usr/local/lib/"
 
 autoload -U promptinit; promptinit
-prompt spaceship
+
+source "$HOME/.zsh/spaceship/spaceship.zsh"
 
 # User
 SPACESHIP_USER_SHOW='always'

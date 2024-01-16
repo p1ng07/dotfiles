@@ -3,6 +3,23 @@
 !.emacs.d/init.el
 !.emacs.d/init.org
 
+.config/evolution
+.config/.gsd-keyboard.settings-ported
+.config/GNOME-xdg-terminals.list
+.config/dconf/
+.config/gnome-control-center/
+.config/gnome-initial-setup-done
+.config/goa-1.0/
+.config/gtk-3.0/
+.config/ibus/
+.config/mimeapps.list
+.config/nautilus/
+.config/evolution
+.config/user-dirs.dirs
+.config/user-dirs.locale
+.config/xdg-terminals.list
+zsh-plugins/
+
 # Compiled Object files
 *.slo
 *.lo
