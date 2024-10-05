@@ -1,26 +1,31 @@
 font pango:monospace 8
 
 # Window title
-default_border pixel
- client.focused #555555 #555555 #ffffff #2e9ef4     #3e68d7
+default_border none
+
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 # nm-applet is a desktop environment-independent system tray GUI for NetworkManager.
 exec --no-startup-id nm-applet &
-
-exec_always --no-startup-id /bin/xmodmap ~/.Xmodmap
+exec --no-startup-id blueman-applet &
+exec --no-startup-id volumeicon &
 
 # Autostart
 exec --no-startup-id firefox &
 exec flameshot &
 exec --no-startup-id emacs &
+exec nitrogen --restore &
+exec xset b off
+exec --no-startup-id picom -b
+exec --no-startup-id xrandr --output HDMI-0 --primary --mode 2560x1440 --rate 143.98
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% 
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
 
 # Bind screenshot utility
 bindsym Print exec --no-startup-id flameshot gui
@@ -39,6 +44,12 @@ floating_modifier Mod4
 assign [class="Firefox"] $ws1
 assign [class="Discord"] $ws9
 assign [class="Emacs"] $ws3
+
+# Gaps
+gaps inner 2px
+gaps outer 6px
+smart_gaps on
+
 # start a terminal
 bindsym Mod4+Return exec alacritty
 
