@@ -8,8 +8,8 @@ default_border none
 exec --no-startup-id dex --autostart --environment i3
 # nm-applet is a desktop environment-independent system tray GUI for NetworkManager.
 exec --no-startup-id nm-applet &
-exec --no-startup-id blueman-applet &
-exec --no-startup-id volumeicon &
+exec_always --no-startup-id blueman-applet &
+exec_always --no-startup-id volumeicon &
 
 # Autostart
 exec --no-startup-id firefox &
@@ -17,7 +17,7 @@ exec flameshot &
 exec --no-startup-id emacs &
 exec nitrogen --restore &
 exec xset b off
-exec --no-startup-id picom -b
+exec_always --no-startup-id picom & 
 exec --no-startup-id xrandr --output HDMI-0 --primary --mode 2560x1440 --rate 143.98
 
 # Use pactl to adjust volume in PulseAudio.
@@ -48,7 +48,7 @@ assign [class="Emacs"] $ws3
 # Gaps
 gaps inner 2px
 gaps outer 6px
-smart_gaps on
+smart_gaps off
 
 # start a terminal
 bindsym Mod4+Return exec alacritty
