@@ -15,7 +15,6 @@
 ;; Set auto matching brackets
 (electric-pair-mode t)
 
-(global-set-key (kbd "C-g") 'evil-normal-state)
 (global-set-key (kbd "M-r") 'universal-argument)
 (define-key universal-argument-map (kbd "M-r") 'universal-argument-more)
 
@@ -29,6 +28,7 @@
 
 ;; Email client
 (use-package mu4e
+  :defer t
   :ensure nil
   :load-path "/usr/share/emacs/site-lisp/mu4e/"
   ;; :defer 20 ; Wait until 20 seconds after startup
@@ -88,36 +88,24 @@
   :config
   (setq aw-keys '(?a ?o ?e ?u ?i ?d ?d ?h ?t ?n ?s)))
 
-(use-package vterm
-  :after (evil))
+(global-set-key (kbd "C-c C-g") 'ace-window)
+
+(use-package vterm)
+
+(define-key vterm-mode-map (kbd "C-c C-g") nil)
+(define-key vterm-mode-map [f2] nil)
 
 (use-package vterm-toggle
   :requires (vterm))
 
-(use-package multi-vterm
-  :after (vterm vterm-toggle evil evil-collection)
-  :config
-  (define-key vterm-mode-map [return] #'vterm-send-return)
 
-  (setq vterm-keymap-exceptions nil)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-e")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-f")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-a")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-v")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-b")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-w")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-u")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-n")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-m")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-p")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-j")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-k")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-r")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-t")      #'vterm--self-insert)
-  (evil-define-key 'normal vterm-mode-map (kbd ",c")       #'multi-vterm)
-  (evil-define-key 'normal vterm-mode-map (kbd ",,")       #'multi-vterm-next)
-  (evil-define-key 'normal vterm-mode-map (kbd ",p")       #'multi-vterm-prev)
-  (evil-define-key 'normal vterm-mode-map (kbd "<return>") #'evil-insert-resume))
+(global-set-key [f2] 'vterm-toggle-cd)
+(define-key vterm-mode-map [(control return)]   #'vterm-toggle-insert-cd)
+
+(use-package multi-vterm
+  :after (vterm vterm-toggle)
+  :config
+  (define-key vterm-mode-map [return] #'vterm-send-return))
 
 (use-package which-key
   :init (which-key-mode)
@@ -141,7 +129,13 @@
   (ivy-use-virtual-buffers t)
   :config
   (setq ivy-use-virtual-buffers t)
-  (ivy-mode))
+  :bind(
+		("C-x b" . counsel-switch-buffer)
+		("M-x" . counsel-M-x)
+		("C-c C-r" . ivy-resume)))
+  
+
+(ivy-mode)
 
 (use-package ivy-posframe
   :config
@@ -172,9 +166,7 @@
 
 (global-set-key "\C-s" 'swiper)
 (global-set-key "\M-x" 'counsel-M-x)
-(global-set-key (kbd "C-w") 'evil-delete-backward-word)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
-(global-set-key (kbd "C-c C-h") 'man)
+;; (global-set-key (kbd "C-w") 'evil-delete-backward-word)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "C-h f") 'counsel-describe-function)
 (global-set-key (kbd "C-h v") 'counsel-describe-variable)
@@ -183,20 +175,6 @@
 (global-set-key (kbd "C-c j") 'counsel-git-grep)
 (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
-(global-set-key (kbd "C-SPC") 'company-complete)
-
-(use-package evil
-  :init
-  (setq evil-want-C-u-scroll t)
-  (setq evil-want-keybinding nil)
-  (setq evil-want-integration t)
-  :config
-  (setq evil-undo-system 'undo-redo))
-
-(evil-mode 1)
-
-(use-package evil-collection
-  :init (evil-collection-init))
 
 (use-package pdf-tools
   :config
@@ -211,18 +189,8 @@ Around advice for FUN with ARGS."
 
 (advice-add 'display-line-numbers--turn-on :around #'bugfix-display-line-numbers--turn-on)
 
-(use-package evil-commentary
-  :config (evil-commentary-mode))
-
 (use-package magit-todos
-  :after magit
   :config (magit-todos-mode 1))
-
-(use-package doom-modeline :init (doom-modeline-mode))
-
-(use-package general
-  :config
-  (general-evil-setup))
 
 (use-package all-the-icons)
 
@@ -230,18 +198,13 @@ Around advice for FUN with ARGS."
   :ensure nil
   :commands (dired dired-jump)
   :bind (("C-x C-j" . dired-jump))
-  :custom ((dired-listing-switches "-agho --group-directories-first"))
-  :config
-   (evil-collection-define-key 'normal 'dired-mode-map
-	 "h" 'dired-single-up-directory
-	"l" 'dired-single-buffer))
+  :custom ((dired-listing-switches "-agho --group-directories-first")))
+
+
 (setq dired-dwim-target t)
 
 (use-package dired-hide-dotfiles
-  :hook (dired-mode . dired-hide-dotfiles-mode)
-  :config
-  (evil-collection-define-key 'normal 'dired-mode-map
-    "H" 'dired-hide-dotfiles-mode))
+  :hook (dired-mode . dired-hide-dotfiles-mode))
 
 (use-package all-the-icons-dired
   :config
@@ -250,10 +213,13 @@ Around advice for FUN with ARGS."
 
 (setq left-fringe-width 16)
 
-(use-package eglot)
+(use-package eglot
+  :bind (
+		 ("M-RET" . eglot-code-actions))
+  :config(
 (add-to-list 'eglot-server-programs '((c++-mode cc-mode c-mode) "clangd"))
 (add-hook 'c-mode-hook 'eglot-ensure)
-(add-hook 'c++-mode-hook 'eglot-ensure)
+(add-hook 'c++-mode-hook 'eglot-ensure)))
 
 (add-hook 'compilation-filter-hook
 		  (lambda () (ansi-color-apply-on-region (point-min) (point-max))))
@@ -261,40 +227,18 @@ Around advice for FUN with ARGS."
 (use-package company
   :init (add-hook 'after-init-hook 'global-company-mode)
   :config (setq company-idle-delay nil)
-  :bind ("C-w" . 'backward-kill-word))
+  :bind (("M-/" . 'company-complete)))
 
 (use-package flycheck
-  :init (global-flycheck-mode))
+  :ensure t
+  :bind-keymap ("C-c l" . flycheck-command-map)
+  :config
+  (add-hook 'after-init-hook #'global-flycheck-mode))
+
+(use-package doom-modeline :init (doom-modeline-mode))
 
 (use-package doom-themes
   :config
   (load-theme 'doom-moonlight t)
   (doom-themes-visual-bell-config)
   (doom-themes-org-config))
-
-(general-define-key
- :keymaps 'normal
- "/" 'swiper)
-
-;; C-c bindings
-(general-define-key
- :states '(visual normal insert motions)
- :keymap 'override
- :prefix "C-c"
- :global-prefix "C-c"
- "C-g" '(ace-window :which-key "Ace window" :package ace-window)
- "r" '(counsel-grep :which-key "Counsel grep" :package counsel))
-
-;Top level leader keybindings
-(general-define-key
- :states '(visual normal motions)
- :keymap 'override
- :prefix "SPC"
- :global-prefix "C-SPC"
- ";" '(counsel-M-x :which-key "M-x")
- "SPC" '(vterm-toggle :which-key "Vterm toggle")
- "o" '(:which-key "Pop-ups")
- "e" '(:which-key "Eval")
- "eb" '(eval-buffer :which-key "Eval buffer")
- "es" '(eval-last-sexp :which-key "Eval sexp"))
-

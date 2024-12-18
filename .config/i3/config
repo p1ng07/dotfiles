@@ -17,6 +17,7 @@ exec flameshot &
 exec --no-startup-id emacs &
 exec nitrogen --restore &
 exec xset b off
+exec xset s off -dpms
 exec_always --no-startup-id picom & 
 exec --no-startup-id xrandr --output HDMI-0 --primary --mode 2560x1440 --rate 143.98
 
